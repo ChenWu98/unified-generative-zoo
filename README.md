@@ -1,5 +1,8 @@
 # A Unified Interface for Guiding Generative Models <br> (2D/3D GANs, Diffusion Models, and Their Variants)
 
+## Note
+1. Paper will be arxived soon. 
+
 ## Overview
 
 GANs, VAEs, and normalizing flows are usually characterized as deterministic mappings from **isometric Gaussian** latent codes to images. 
