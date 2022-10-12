@@ -1,7 +1,7 @@
 # A Unified Interface for Guiding Generative Models <br> (2D/3D GANs, Diffusion Models, and Their Variants)
 
 ## Note
-1. Paper will be arxived soon. 
+1. I am still updating the code. I will put a note here when everything is ready.  
 
 ## Overview
 
