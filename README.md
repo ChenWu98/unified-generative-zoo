@@ -1,5 +1,13 @@
 # A Unified Interface for Guiding Generative Models <br> (2D/3D GANs, Diffusion Models, and Their Variants)
 
+Official PyTorch implementation of (**Section 4.3** of) our paper <br>
+**Unifying Diffusion Models' Latent Space, with Applications to CycleDiffusion and Guidance** <br>
+Chen Henry Wu, Fernando De la Torre <br>
+Carnegie Mellon University <br>
+_Preprint, Oct 2022_
+
+[**[Paper link]**](https://arxiv.org/abs/2210.05559)
+
 ## Note
 1. I am still updating the code. I will put a note here when everything is ready.  
 
