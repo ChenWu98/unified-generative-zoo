@@ -1,4 +1,4 @@
-# A Unified Interface for Guiding Generative Models <br> (2D/3D GANs, Diffusion Models, and Their Variants)
+# A Unified Interface for Guiding Generative Models (2D/3D GANs, Diffusion Models, and Their Variants)
 
 Official PyTorch implementation of (**Section 4.3** of) our paper <br>
 **Unifying Diffusion Models' Latent Space, with Applications to CycleDiffusion and Guidance** <br>
@@ -50,7 +50,7 @@ Interestingly, we find that different models represent subpopulations and indivi
 
 ## Contents
 
-- [A Unified Interface for Guiding Generative Models <br> (2D/3D GANs, Diffusion Models, and Their Variants)](#a-unified-interface-for-guiding-generative-models--2d3d-gans-diffusion-models-and-their-variants)
+- [A Unified Interface for Guiding Generative Models (2D/3D GANs, Diffusion Models, and Their Variants)](#a-unified-interface-for-guiding-generative-models-2d3d-gans-diffusion-models-and-their-variants)
   - [Notes](#notes)
   - [Overview](#overview)
   - [Contents](#contents)
