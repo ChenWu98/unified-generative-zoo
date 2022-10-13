@@ -54,4 +54,27 @@ Interestingly, we find that different models represent subpopulations and indivi
   - [Notes](#notes)
   - [Overview](#overview)
   - [Contents](#contents)
+  - [Dependencies](#dependencies)
 
+## Dependencies
+
+1. Create environment by running
+```shell
+conda env create -f environment.yml
+conda activate generative_prompt
+pip install git+https://github.com/openai/CLIP.git
+```
+2. Install `torch` and `torchvision` based on your CUDA version. 
+3. Install [PyTorch 3D](https://github.com/facebookresearch/pytorch3d). Installing this library can be painful, but you can skip it if you are not using 3D GANs.
+4. Install [taming-transformers](https://github.com/CompVis/taming-transformers) by running
+```shell
+cd ../
+git clone git@github.com:CompVis/taming-transformers.git
+cd taming-transformers/
+pip install -e .
+cd ../
+```
+5. Set up [wandb](https://wandb.ai/) for logging (registration is required). You should modify the ```setup_wandb``` function in ```main.py``` to accomodate your wandb credentials. You may want to run something like
+```shell
+wandb login
+```
