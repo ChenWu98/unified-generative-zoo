@@ -47,3 +47,11 @@ Interestingly, we find that different models represent subpopulations and indivi
 <div align=center>
     <img src="docs/ids.png" align="middle" width=725>
 </div>
+
+## Contents
+
+- [A Unified Interface for Guiding Generative Models <br> (2D/3D GANs, Diffusion Models, and Their Variants)](#a-unified-interface-for-guiding-generative-models--2d3d-gans-diffusion-models-and-their-variants)
+  - [Notes](#notes)
+  - [Overview](#overview)
+  - [Contents](#contents)
+
