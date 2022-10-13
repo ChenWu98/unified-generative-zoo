@@ -58,6 +58,8 @@ Interestingly, we find that different models represent subpopulations and indivi
   - [Pre-trained checkpoints](#pre-trained-checkpoints)
     - [Pre-trained generative models](#pre-trained-generative-models)
     - [Off-the-shelf models for guidance](#off-the-shelf-models-for-guidance)
+  - [Usage](#usage)
+    - [Overview](#overview-1)
   - [Citation](#citation)
   - [License](#license)
   - [Contact](#contact)
@@ -192,6 +194,15 @@ cd ckpts/
 wget https://www.dropbox.com/s/yzc8ydaa4ggj1zs/celeba.zip
 unzip celeba.zip 
 ```
+
+## Usage
+
+### Overview
+
+Each set notation `{A,B,C}` stands for several independent experiments. 
+You should always replace `{A,B,C}` with one of `A`, `B`, and `C`. 
+Model checkpoints and image samples will be saved under `--output_dir`. 
+
 
 
 ## Citation
