@@ -62,6 +62,7 @@ Interestingly, we find that different models represent subpopulations and indivi
     - [Overview](#overview-1)
     - [CLIP guidance for sampling sub-populations](#clip-guidance-for-sampling-sub-populations)
     - [Classifier guidance for sampling sub-populations](#classifier-guidance-for-sampling-sub-populations)
+    - [ID guidance for sampling individuals](#id-guidance-for-sampling-individuals)
   - [Citation](#citation)
   - [License](#license)
   - [Contact](#contact)
@@ -243,6 +244,20 @@ export CUDA_VISIBLE_DEVICES=0
 export RUN_NAME=class_eyeglasses_celeba64_sn_dpm_ddpm_langevin
 export SEED=42
 nohup python -m torch.distributed.launch --nproc_per_node 1 --master_port 1430 main.py --seed $SEED --cfg experiments/$RUN_NAME.cfg --run_name $RUN_NAME$SEED --logging_strategy steps --logging_first_step true --logging_steps 4 --evaluation_strategy steps --eval_steps 50 --metric_for_best_model ClassEnergy --greater_is_better false --save_strategy steps --save_steps 50 --save_total_limit 1 --load_best_model_at_end --gradient_accumulation_steps 4 --num_train_epochs 0 --adafactor false --learning_rate 1e-3 --do_eval --output_dir output/$RUN_NAME$SEED --overwrite_output_dir --per_device_train_batch_size 1 --per_device_eval_batch_size 1 --eval_accumulation_steps 4 --ddp_find_unused_parameters true --verbose true > $RUN_NAME$SEED.log 2>&1 &
+```
+
+
+### ID guidance for sampling individuals
+1. ```ID reference``` $\in$ ```{00001, 00002, 00015, 00018}```.
+2. ```Generative model``` $\in$ ```{LDM-DDIM, DiffAE, StyleGAN-XL, StyleGAN2, DDGAN, EG3D, GIRAFFE-HD}```.
+3. ```Dataset and resolution``` $\in$ ```{FFHQ1024, FFHQ512, FFHQ256, CelebAHQ256}```.
+4. Note that not all combinations of ```Generative model``` $\times$ ```Dataset and resolution``` are available. Please check the paper and [available configs](config/experiments) for details. 
+
+```shell
+export CUDA_VISIBLE_DEVICES=0
+export RUN_NAME=recon_id_{00001,00002,00015,00018}_{ffhq256,ffhq512,ffhq1024,celebahq256}_{latentdiff,diffae_10steps_10steps_both,giraffehd,stylegan2,styleganxl,ddgan,eg3d}_langevin
+export SEED=42
+nohup python -m torch.distributed.launch --nproc_per_node 1 --master_port 1420 main.py --seed $SEED --cfg experiments/$RUN_NAME.cfg --run_name $RUN_NAME$SEED --logging_strategy steps --logging_first_step true --logging_steps 4 --evaluation_strategy steps --eval_steps 50 --metric_for_best_model CLIPEnergy --greater_is_better false --save_strategy steps --save_steps 50 --save_total_limit 1 --load_best_model_at_end --gradient_accumulation_steps 8 --num_train_epochs 0 --adafactor false --learning_rate 1e-3 --do_eval --output_dir output/$RUN_NAME$SEED --overwrite_output_dir --per_device_train_batch_size 1 --per_device_eval_batch_size 1 --eval_accumulation_steps 4 --ddp_find_unused_parameters true --verbose true > $RUN_NAME$SEED.log 2>&1 &
 ```
 
 
