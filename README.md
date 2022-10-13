@@ -8,6 +8,9 @@ _Preprint, Oct 2022_
 
 [**[Paper link]**](https://arxiv.org/abs/2210.05559)
 
+## Updates
+[Oct 13, 2022] Code released. 
+
 ## Notes
 1. **Sections 4.1** and **4.2** of this paper is open-sourced at [CycleDiffusion](https://github.com/ChenWu98/cycle-diffusion).
 2. The code is based on [Generative Visual Prompt](https://github.com/ChenWu98/Generative-Visual-Prompt).
@@ -51,6 +54,7 @@ Interestingly, we find that different models represent subpopulations and indivi
 ## Contents
 
 - [A Unified Interface for Guiding Generative Models (2D/3D GANs, Diffusion Models, and Their Variants)](#a-unified-interface-for-guiding-generative-models-2d3d-gans-diffusion-models-and-their-variants)
+  - [Updates](#updates)
   - [Notes](#notes)
   - [Overview](#overview)
   - [Contents](#contents)
