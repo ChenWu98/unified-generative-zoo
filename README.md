@@ -8,8 +8,10 @@ _Preprint, Oct 2022_
 
 [**[Paper link]**](https://arxiv.org/abs/2210.05559)
 
-## Note
-1. I am still updating the code. I will put a note here when everything is ready.  
+## Notes
+1. **Sections 4.1** and **4.2** of this paper is open-sourced at [CycleDiffusion](https://github.com/ChenWu98/cycle-diffusion).
+2. The code is based on [Generative Visual Prompt](https://github.com/ChenWu98/Generative-Visual-Prompt).
+3. Feel free to email me if you think I should cite your work! 
 
 ## Overview
 
