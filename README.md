@@ -204,6 +204,7 @@ If you find this repository helpful, please cite as
   year={2022},
 }
 ```
+Do not forget to cite the original papers that proposed these models! 
 
 ## License
 We use the X11 License. This license is identical to the MIT License, but with an extra sentence that prohibits using the copyright holders' names (Carnegie Mellon University in our case) for advertising or promotional purposes without written permission.
