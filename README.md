@@ -61,6 +61,7 @@ Interestingly, we find that different models represent subpopulations and indivi
   - [Usage](#usage)
     - [Overview](#overview-1)
     - [CLIP guidance for sampling sub-populations](#clip-guidance-for-sampling-sub-populations)
+    - [Classifier guidance for sampling sub-populations](#classifier-guidance-for-sampling-sub-populations)
   - [Citation](#citation)
   - [License](#license)
   - [Contact](#contact)
@@ -215,6 +216,33 @@ export CUDA_VISIBLE_DEVICES=0
 export RUN_NAME=clip_{a_baby,an_old_person,a_person_with_eyeglasses,a_person_with_eyeglasses_and_a_yellow_hat}_{ffhq1024,ffhq512,ffhq256,ffhq128}_{styleganxl,stylegan2,styleswin,stylenerf,latentdiff_5step,latentdiff_10step,diffae_3step_3step_latent_only,stylesdf,stylegan2_no_trunc,stylesdf_no_trunc,styleswin_no_trunc,styleganxl_no_trunc,stylenerf_no_trunc,nvae,eg3d,eg3d_no_trunc,giraffehd,diffae_3step_3step_both,diffusion_stylegan2,diffusion_stylegan2_no_trunc,diffae_10step_10step_both,}_langevin{,_100,_300,_700,_1000}
 export SEED=42
 nohup python -m torch.distributed.launch --nproc_per_node 1 --master_port 1410 main.py --seed $SEED --cfg experiments/$RUN_NAME.cfg --run_name $RUN_NAME$SEED --logging_strategy steps --logging_first_step true --logging_steps 4 --evaluation_strategy steps --eval_steps 50 --metric_for_best_model CLIPEnergy --greater_is_better false --save_strategy steps --save_steps 50 --save_total_limit 1 --load_best_model_at_end --gradient_accumulation_steps 4 --num_train_epochs 0 --adafactor false --learning_rate 1e-3 --do_eval --output_dir output/$RUN_NAME$SEED --overwrite_output_dir --per_device_train_batch_size 1 --per_device_eval_batch_size 1 --eval_accumulation_steps 4 --ddp_find_unused_parameters true --verbose true > $RUN_NAME$SEED.log 2>&1 &
+```
+
+### Classifier guidance for sampling sub-populations
+```shell
+# DDGAN CelebAHQ256 old
+export CUDA_VISIBLE_DEVICES=0
+export RUN_NAME=class_old_celebahq256_ddgan_langevin
+export SEED=42
+nohup python -m torch.distributed.launch --nproc_per_node 1 --master_port 1430 main.py --seed $SEED --cfg experiments/$RUN_NAME.cfg --run_name $RUN_NAME$SEED --logging_strategy steps --logging_first_step true --logging_steps 4 --evaluation_strategy steps --eval_steps 50 --metric_for_best_model ClassEnergy --greater_is_better false --save_strategy steps --save_steps 50 --save_total_limit 1 --load_best_model_at_end --gradient_accumulation_steps 4 --num_train_epochs 0 --adafactor false --learning_rate 1e-3 --do_eval --output_dir output/$RUN_NAME$SEED --overwrite_output_dir --per_device_train_batch_size 1 --per_device_eval_batch_size 1 --eval_accumulation_steps 4 --ddp_find_unused_parameters true --verbose true > $RUN_NAME$SEED.log 2>&1 &
+
+# DDGAN CelebAHQ256 eyeglassess
+export CUDA_VISIBLE_DEVICES=0
+export RUN_NAME=class_eyeglasses_celebahq256_ddgan_langevin
+export SEED=42
+nohup python -m torch.distributed.launch --nproc_per_node 1 --master_port 1430 main.py --seed $SEED --cfg experiments/$RUN_NAME.cfg --run_name $RUN_NAME$SEED --logging_strategy steps --logging_first_step true --logging_steps 4 --evaluation_strategy steps --eval_steps 50 --metric_for_best_model ClassEnergy --greater_is_better false --save_strategy steps --save_steps 50 --save_total_limit 1 --load_best_model_at_end --gradient_accumulation_steps 4 --num_train_epochs 0 --adafactor false --learning_rate 1e-3 --do_eval --output_dir output/$RUN_NAME$SEED --overwrite_output_dir --per_device_train_batch_size 1 --per_device_eval_batch_size 1 --eval_accumulation_steps 4 --ddp_find_unused_parameters true --verbose true > $RUN_NAME$SEED.log 2>&1 &
+
+# SN-DPM DDPM CelebA64 old
+export CUDA_VISIBLE_DEVICES=0
+export RUN_NAME=class_old_celeba64_sn_dpm_ddpm_langevin
+export SEED=42
+nohup python -m torch.distributed.launch --nproc_per_node 1 --master_port 1430 main.py --seed $SEED --cfg experiments/$RUN_NAME.cfg --run_name $RUN_NAME$SEED --logging_strategy steps --logging_first_step true --logging_steps 4 --evaluation_strategy steps --eval_steps 50 --metric_for_best_model ClassEnergy --greater_is_better false --save_strategy steps --save_steps 50 --save_total_limit 1 --load_best_model_at_end --gradient_accumulation_steps 4 --num_train_epochs 0 --adafactor false --learning_rate 1e-3 --do_eval --output_dir output/$RUN_NAME$SEED --overwrite_output_dir --per_device_train_batch_size 1 --per_device_eval_batch_size 1 --eval_accumulation_steps 4 --ddp_find_unused_parameters true --verbose true > $RUN_NAME$SEED.log 2>&1 &
+
+# SN-DPM DDPM CelebA64 eyeglasses
+export CUDA_VISIBLE_DEVICES=0
+export RUN_NAME=class_eyeglasses_celeba64_sn_dpm_ddpm_langevin
+export SEED=42
+nohup python -m torch.distributed.launch --nproc_per_node 1 --master_port 1430 main.py --seed $SEED --cfg experiments/$RUN_NAME.cfg --run_name $RUN_NAME$SEED --logging_strategy steps --logging_first_step true --logging_steps 4 --evaluation_strategy steps --eval_steps 50 --metric_for_best_model ClassEnergy --greater_is_better false --save_strategy steps --save_steps 50 --save_total_limit 1 --load_best_model_at_end --gradient_accumulation_steps 4 --num_train_epochs 0 --adafactor false --learning_rate 1e-3 --do_eval --output_dir output/$RUN_NAME$SEED --overwrite_output_dir --per_device_train_batch_size 1 --per_device_eval_batch_size 1 --eval_accumulation_steps 4 --ddp_find_unused_parameters true --verbose true > $RUN_NAME$SEED.log 2>&1 &
 ```
 
 
