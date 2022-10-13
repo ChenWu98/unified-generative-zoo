@@ -20,6 +20,8 @@ We show that it is possible to unify various diffusion models into this formulat
 This allows us to guide (or condition, control) various generative models in a **unified, plug-and-play manner** by leveraging latent-space energy-based models (EBMs). 
 This repository provides a unified interface for guiding various generative models with CLIP, classifiers, and face IDs. 
 
+Models studied in this paper (some of them are not included here; please check [CycleDiffusion](https://github.com/ChenWu98/cycle-diffusion)):
+
 <div align=center>
     <img src="docs/models.png" align="middle" width=750>
 </div>
