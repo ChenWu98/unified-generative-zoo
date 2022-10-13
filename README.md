@@ -55,6 +55,9 @@ Interestingly, we find that different models represent subpopulations and indivi
   - [Overview](#overview)
   - [Contents](#contents)
   - [Dependencies](#dependencies)
+  - [Citation](#citation)
+  - [License](#license)
+  - [Contact](#contact)
 
 ## Dependencies
 
@@ -78,3 +81,27 @@ cd ../
 ```shell
 wandb login
 ```
+
+
+## Citation
+If you find this repository helpful, please cite as
+```
+@inproceedings{unifydiffusion2022,
+  title={Unifying Diffusion Models' Latent Space, with Applications to {CycleDiffusion} and Guidance},
+  author={Chen Henry Wu and Fernando De la Torre},
+  booktitle={ArXiv},
+  year={2022},
+}
+```
+
+## License
+We use the X11 License. This license is identical to the MIT License, but with an extra sentence that prohibits using the copyright holders' names (Carnegie Mellon University in our case) for advertising or promotional purposes without written permission.
+
+
+
+
+## Contact
+[Issues](https://github.com/ChenWu98/unified-generative-zoo/issues) are welcome if you have any question about the code. 
+If you would like to discuss the method, please contact [Chen Henry Wu](https://github.com/ChenWu98).
+
+<a href="https://github.com/ChenWu98"><img src="https://avatars.githubusercontent.com/u/28187501?v=4"  width="50" /></a>
