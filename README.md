@@ -9,10 +9,7 @@ _Preprint, Oct 2022_
 [**[Paper link]**](https://arxiv.org/abs/2210.05559)
 
 ## Updates
-**[Oct 13, 2022]** Code released. 
-
-## TODOs
-1. Add GPU requirements. 
+**[Oct 13, 2022]** Code released.
 
 ## Notes
 1. **Sections 4.1** and **4.2** of this paper is open-sourced at [CycleDiffusion](https://github.com/ChenWu98/cycle-diffusion).

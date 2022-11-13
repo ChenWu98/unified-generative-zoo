@@ -720,7 +720,6 @@ class Generator(nn.Module):
                 return_sdf=False, return_xyz=False, return_eikonal=False,
                 project_noise=False, mesh_path=None):
 
-        # with torch.set_grad_enabled(self.is_train and self.train_renderer):  # Commented by Chen Henry Wu.
         latent = self.styles_and_noise_forward(styles, inject_index, truncation,
                                                truncation_latent, input_is_latent)
 

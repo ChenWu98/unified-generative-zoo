@@ -1,4 +1,3 @@
-# Created by Chen Henry Wu
 from collections import OrderedDict
 
 import torch

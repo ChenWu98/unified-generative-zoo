@@ -2331,7 +2331,7 @@ class CameraQueriedSampler(torch.utils.data.Sampler):
         self.B = 1000
         
     def update_dataset_cameras(self, estimator):
-        raise NotImplementedError()  # Chen.
+        raise NotImplementedError()
         import tqdm
         from torch_utils.distributed_utils import gather_list_and_concat
         output = torch.ones(len(self.dataset), 16).to(self.device)
