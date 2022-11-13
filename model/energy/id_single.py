@@ -1,4 +1,3 @@
-# Created by Chen Henry Wu
 import torch
 from torch import nn
 from PIL import Image

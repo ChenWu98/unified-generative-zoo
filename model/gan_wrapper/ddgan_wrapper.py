@@ -1,4 +1,3 @@
-# Created by Chen Henry Wu
 import argparse
 
 import numpy as np

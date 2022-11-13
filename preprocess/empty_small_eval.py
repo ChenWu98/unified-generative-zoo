@@ -1,4 +1,3 @@
-# Created by Chen Henry Wu
 import torch
 from datasets import DatasetDict
 from torch.utils.data import Dataset
