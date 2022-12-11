@@ -38,6 +38,7 @@ def parse_args():
 def main():
     args = parse_args()
     config = get_config(os.path.join('generate', f'{args.model}.cfg'))
+    torch.cuda.manual_seed(0)
     generator = get_gan_wrapper(config.model).cuda()
     generator.eval()
 
