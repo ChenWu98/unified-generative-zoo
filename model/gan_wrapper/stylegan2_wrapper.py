@@ -108,7 +108,7 @@ class StyleGAN2Wrapper(torch.nn.Module):
         # Eval mode for the generator.
         self.generator.eval()
 
-        z = torch.randn(1, self.latent_dim)
+        z = torch.randn(1, self.latent_dim).to(self.device)
         w = self.z_to_w(z)
 
         img = self.generator([w],
