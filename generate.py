@@ -54,9 +54,8 @@ def main():
         image = Image.fromarray(image)
         file_name = f"image_{str(i).zfill(6)}.png"
         image.save(os.path.join(args.output_dir, file_name))
-        style_vectors[file_name] = style.to("cpu").numpy()
-    with open(os.path.join(args.output_dir, "style_vectors.json"), "w") as f:
-        json.dump(style_vectors, f)
+        style_vectors[file_name] = style.to("cpu")
+    torch.save(style_vectors, os.path.join(args.output_dir, "style_vectors.json"))
 
 
 if __name__ == "__main__":
