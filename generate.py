@@ -25,6 +25,11 @@ def parse_args():
         default=1000,
         help="Number of images to generate.",
     )
+    parser.add_argument(
+        "--output_dir",
+        type=str,
+        default="output",
+    )
 
     args = parser.parse_args()
     return args
