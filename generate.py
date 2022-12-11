@@ -37,13 +37,13 @@ def parse_args():
 
 def main():
     args = parse_args()
-    config = get_config(f'configs/generate/{args.model}.cfg')
+    config = get_config(f'config/generate/{args.model}.cfg')
     generator = get_gan_wrapper(config.model)
     generator.eval()
 
     os.makedirs(args.output_dir, exist_ok=True)
 
-    style_vectors = []
+    style_vectors = dict()
     for i in tqdm(range(args.num_images)):
         image, style = generator.sample_image_style()
         image = image[0]
@@ -53,7 +53,7 @@ def main():
         image = Image.fromarray(image)
         file_name = f"image_{str(i).zfill(6)}.png"
         image.save(os.path.join(config.output_dir, file_name))
-        style_vectors.append(style.to("cpu").numpy())
+        style_vectors[file_name] = style.to("cpu").numpy()
     with open(os.path.join(config.output_dir, "style_vectors.json"), "w") as f:
         json.dump(style_vectors, f)
 
