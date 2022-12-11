@@ -37,7 +37,7 @@ def parse_args():
 
 def main():
     args = parse_args()
-    config = get_config(f'config/generate/{args.model}.cfg')
+    config = get_config(os.path.join('generate', f'{args.model}.cfg'))
     generator = get_gan_wrapper(config.model)
     generator.eval()
 
