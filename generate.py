@@ -41,6 +41,8 @@ def main():
     generator = get_gan_wrapper(config.model)
     generator.eval()
 
+    os.makedirs(args.output_dir, exist_ok=True)
+
     style_vectors = []
     for i in tqdm(range(args.num_images)):
         image, style = generator.sample_image_style()
