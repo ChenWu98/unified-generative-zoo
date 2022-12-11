@@ -104,6 +104,23 @@ class StyleGAN2Wrapper(torch.nn.Module):
 
         return img
 
+    def sample_image_style(self):
+        # Eval mode for the generator.
+        self.generator.eval()
+
+        z = torch.randn(1, self.latent_dim)
+        w = self.z_to_w(z)
+
+        img = self.generator([w],
+                             input_is_latent=True,  # True if w; False if z
+                             truncation=self.sample_truncation,
+                             truncation_latent=self.mean_latent,
+                             randomize_noise=self.randomize_noise)[0]
+        # Post process.
+        img = self.post_process(img)
+
+        return img, w
+
     @property
     def device(self):
         return next(self.parameters()).device

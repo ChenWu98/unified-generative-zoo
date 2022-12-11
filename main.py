@@ -39,9 +39,6 @@ def setup_wandb(training_args):
     if "wandb" in training_args.report_to and training_args.local_rank <= 0:
         import wandb
 
-        # init_args = {}
-        # if "MLFLOW_EXPERIMENT_ID" in os.environ:
-        #     init_args["group"] = os.environ["MLFLOW_EXPERIMENT_ID"]
         wandb.init(
             project=os.getenv("WANDB_PROJECT", "your project name"),
             name=training_args.run_name,
@@ -65,12 +62,6 @@ def main():
     training_args, = parser.parse_args_into_dataclasses()
     set_seed(training_args.seed)
     args = get_config(training_args.cfg)
-
-    # Deterministic behavior of torch.addmm.
-    # Please refer to https://docs.nvidia.com/cuda/cublas/index.html#cublasApi_reproducibility
-    # os.environ['CUBLAS_WORKSPACE_CONFIG'] = ':4096:8'
-    # torch.use_deterministic_algorithms(True)
-    # cudnn.deterministic = True
 
     # Set up wandb.
     wandb_run_dir = setup_wandb(training_args)
@@ -149,5 +140,4 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
 
     main()
-    # from time import sleep
-    # sleep(3600 * 48)
+
