@@ -43,6 +43,7 @@ def main():
     generator.eval()
 
     os.makedirs(args.output_dir, exist_ok=True)
+    os.makedirs(os.path.join(args.output_dir, 'images'), exist_ok=True)
 
     style_vectors = dict()
     for i in tqdm(range(args.num_images)):
@@ -53,7 +54,7 @@ def main():
         image = image.mul(255).add_(0.5).clamp_(0, 255).permute(1, 2, 0).to("cpu", torch.uint8).numpy()
         image = Image.fromarray(image)
         file_name = f"image_{str(i).zfill(6)}.png"
-        image.save(os.path.join(args.output_dir, file_name))
+        image.save(os.path.join(args.output_dir, 'images', file_name))
         style_vectors[file_name] = style.to("cpu")
     torch.save(style_vectors, os.path.join(args.output_dir, "style_vectors.pt"))
 
